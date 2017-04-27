@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image upload</title>
+    <base href="/">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+  </head>
+
+  <body>
+    <div class="container">
+    <h1>Select a file to upload</h1>
+    <form action="/upload" method="POST">
+      <input type="file" name="image" required>
+      <input type="submit" class="btn btn-success" value="Upload">
+    </form>
+</div>
+  </body>
+</html>

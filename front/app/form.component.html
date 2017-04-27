@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Select an image to upload</h1>
+    <form>
+      <div class="form-group">
+        <input type="file" class="form-control"
+          #inputFile
+          (change)="onChange($event)"/>
+        <br />
+        <button (click)="onSubmit()" class="btn btn-success">Upload</button>
+
+        {{ result }}
+      </div>
+    </form>
+</div>
