@@ -1,10 +1,11 @@
-import {Injectable}from '@angular/core';
-import {Observable} from 'rxjs/Rx';
+import { Injectable }from '@angular/core';
+import { Observable } from 'rxjs/Rx';
+import { Observer } from 'rxjs/Rx';
 
 @Injectable()
 export class UploadService {
      makeFileRequest(url: string, files: File[]): Observable<any> {
-        return Observable.create(observer => {
+        return Observable.create((observer: Observer<String>) => {
             let formData: FormData = new FormData(),
                 xhr: XMLHttpRequest = new XMLHttpRequest();
 

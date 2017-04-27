@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+const acceptedTypes = ['image/jpeg', "image/jpg", "image/gif", "image/png"];
 const upload = multer({
   dest: './public/uploads/',
   limits: {
@@ -30,7 +31,14 @@ const upload = multer({
       let ext = path.extname(file.originalname);
       cb(null, (new Date()).getTime() + ext);
     }
-  })
+  }),
+  fileFilter: function(req, file, cb) {
+
+    if(acceptedTypes.indexOf(file.mimetype) !== -1)
+      cb(null, true);
+    else
+      cb(null, false);
+  }
 });
 
 app.post('/upload', upload.any(), (req, res) => {

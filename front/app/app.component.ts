@@ -7,6 +7,9 @@ import { UploadService } from './services/upload.service';
   providers: [ UploadService ]
 })
 export class AppComponent { 
+  private files: Array<File>;
+  private result: String;
+  acceptedTypes: Array<String>;
 
   constructor(private uploadService: UploadService) {
     this.files = null;
@@ -14,7 +17,7 @@ export class AppComponent {
     this.acceptedTypes = ['image/jpeg', "image/jpg", "image/gif", "image/png"];
   }
 
-  onChange(event) {
+  onChange(event: any) {
     const files = event.srcElement.files;
     const type = files[0].type;
     if(this.acceptedTypes.indexOf(type) === -1) {
